@@ -1,0 +1,53 @@
+/* ==== Estilos personalizados para la página SENA ==== */
+
+/* Fondo y fuente general */
+body {
+  @apply bg-gray-100 text-gray-800 font-sans;
+}
+
+/* ==== Navbar ==== */
+header {
+  @apply bg-green-600 text-white flex justify-between items-center px-8 py-4 shadow-md rounded-b-2xl;
+}
+
+header div {
+  @apply w-10 h-10 bg-white rounded-full;
+}
+
+header nav a {
+  @apply text-white hover:text-yellow-200 transition font-semibold text-sm;
+}
+
+/* ==== Encabezado principal ==== */
+section.text-center h2 {
+
+    @apply text-2xl font-bold text-green-700;
+}
+
+section.text-center h3 {
+  @apply text-lg font-semibold text-gray-700;
+}
+
+section.text-center p {
+  @apply text-sm text-gray-500;
+}
+
+/* ==== Cuadros de programas ==== */
+section.grid div {
+  @apply bg-white border-2 border-green-500 rounded-2xl shadow-sm h-28 flex items-center justify-center font-semibold hover:bg-green-100 transition text-green-700;
+}
+
+/* ==== Formulario de contacto ==== */
+section form input,
+section form textarea {
+  @apply border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:border-green-500;
+}
+
+section form button {
+  @apply bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition;
+}
+
+/* ==== Ajustes de layout general ==== */
+section {
+  @apply my-10;
+}

@@ -34,5 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build       # Asegúrate de que sea la carpeta correcta
+          publish_dir: ./dist       # ← Asegúrate de que tu build genera “dist/”
           publish_branch: gh-pages

@@ -1,70 +1,67 @@
 import React from "react";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const programas = [
+    "ADSO",
+    "REDES DE DATOS",
+    "ANIMACIÓN 3D",
+    "LOGÍSTICA",
+    "MERCADEO",
+    "SISTEMAS",
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 font-sans">
-      {/* Navbar */}
-      <header className="w-full bg-white shadow-md py-4 px-8 flex justify-between items-center">
-        <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-        <nav className="flex gap-6 text-sm font-semibold">
-          <a href="#">Inicio</a>
-          <a href="#">Programas</a>
-          <a href="#">Contacto</a>
+    <div className="outer-frame">
+      {/* HEADER */}
+      <header className="top-area">
+        <div className="logo-circle" aria-hidden></div>
+        <nav className="top-menu">
+          <a href="#">INICIO</a>
+          <a href="#">PROGRAMAS</a>
+          <a href="#">CONTACTO</a>
         </nav>
       </header>
 
-      {/* Encabezado */}
-      <section className="text-center my-10">
-        <h2 className="text-lg font-semibold">SERVICIO NACIONAL DE APRENDIZAJE</h2>
-        <h3 className="text-md">CENTRO DE GESTIÓN DE MERCADOS</h3>
-        <p className="text-sm mt-2 text-gray-600">BOGOTÁ</p>
-      </section>
+      {/* TITLES */}
+      <div className="titles">
+        <div className="title-line">SERVICIO NACIONAL DE APRENDIZAJE</div>
+        <div className="title-line small">CENTRO DE GESTIÓN DE MERCADOS</div>
+        <div className="title-line tiny">BOGOTÁ</div>
+      </div>
 
-      {/* Sección de programas */}
-      <section className="grid grid-cols-3 gap-6 w-3/4 mb-10">
-        {["ADSO", "Redes de Datos", "Animación 3D", "Logística", "Mercadeo", "Sistemas"].map(
-          (programa) => (
-            <div
-              key={programa}
-              className="bg-white shadow-md rounded-xl h-28 flex items-center justify-center text-center font-semibold hover:bg-green-100 transition"
-            >
-              {programa.toUpperCase()}
+      <hr className="separator" />
+
+      {/* PROGRAM CARDS */}
+      <section className="programs-area">
+        <div className="programs-grid">
+          {programas.map((p) => (
+            <div key={p} className="program-card">
+              <span>{p}</span>
             </div>
-          )
-        )}
+          ))}
+        </div>
       </section>
 
-      {/* Formulario de contacto */}
-      <section className="bg-white shadow-lg rounded-2xl p-6 w-1/2 mb-10">
-        <h3 className="text-center font-bold mb-4">Contacto</h3>
-        <form className="flex flex-col gap-4">
-          <input
-            type="text"
-            placeholder="Nombres"
-            className="border border-gray-300 rounded-md p-2"
-          />
-          <input
-            type="email"
-            placeholder="Correo"
-            className="border border-gray-300 rounded-md p-2"
-          />
-          <textarea
-            placeholder="Mensaje"
-            rows="4"
-            className="border border-gray-300 rounded-md p-2"
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
-          >
-            Enviar
-          </button>
-        </form>
+      <hr className="separator large" />
+
+      {/* BOTTOM LARGE BOX with contact form centered */}
+      <section className="bottom-area">
+        <div className="form-outer">
+          <form className="contact-card" onSubmit={(e) => e.preventDefault()}>
+            <label className="lbl">NOMBRES</label>
+            <input className="inp" type="text" placeholder="Ingrese su nombre" />
+
+            <label className="lbl">CORREO</label>
+            <input className="inp" type="email" placeholder="Ingrese su correo" />
+
+            <label className="lbl">MENSAJE</label>
+            <textarea className="txt" placeholder="Escriba su mensaje"></textarea>
+
+            <button className="btn-send" type="submit">ENVIAR</button>
+          </form>
+        </div>
       </section>
     </div>
   );
 }
-
-export default App;
-
-

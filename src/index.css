@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+/* Importamos nuestro CSS personalizado */
+@import "./styles.css";

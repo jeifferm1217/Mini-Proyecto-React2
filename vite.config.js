@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // 👈 importantísimo para Vercel
+  base: '/Mini-Proyecto-React2/', // 👈 importantísimo para Vercel
 })

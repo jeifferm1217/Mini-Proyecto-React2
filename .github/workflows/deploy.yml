@@ -1,43 +1,38 @@
-# Nombre del flujo de trabajo en GitHub Actions
 name: Deploy React app to GitHub Pages
 
-# Evento que activa la acción
 on:
   push:
     branches:
-      - develop  # La acción se ejecutará cuando haya un push en la rama "develop"
+      - develop
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest  # El flujo se ejecutará en un entorno con Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: Descargar el código del repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
-      
-      # Paso 2: Instalar Node.js para poder ejecutar comandos de npm
-      - name: instalar Node.jobs
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # Versión de Node.js que se usará
-      
-      # Paso 3: Instalar las dependencias del proyecto (React, ESLint, etc.)
+          node-version: 20
+
       - name: Install dependencies
         run: npm install
 
-      # Paso 4: Analizar el código con ESLint para detectar errores o malas prácticas
       - name: Lint code with ESLint
-        run: npm run lint 
+        run: npm run lint
 
-      # Paso 5: Compilar el proyecto React (crea la carpeta "dist" lista para producción)
-      - name: Build del proyecto
+      - name: Build project
         run: npm run build
-      
-      # Paso 6: Publicar la versión compilada del proyecto en GitHub Pages
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación del repositorio
-          publish_dir: ./dist  # Carpeta que contiene los archivos finales a publicar
-          publish_branch: gh-pages  
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist         # ← ESTA ES LA CORRECTA
+          publish_branch: gh-pages
